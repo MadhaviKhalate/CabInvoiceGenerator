@@ -36,6 +36,17 @@ namespace CabInvoice_Generator
                         Console.WriteLine("TotalFare: " + invoice.totalFare + "\nNumberOfRides: " + invoice.numberOfRides + "\nAverage Fare: " + invoice.averageFare);
                         break;
                     }
+                case 4:
+                    {
+                        RideRepository rideRepository = new RideRepository();
+                        Ride[] ela = { new Ride(10, 10), new Ride(10, 20), new Ride(10, 10) };
+                        rideRepository.AddRides("Ela", ela);
+                        Ride[] nan = { new Ride(30, 10), new Ride(10, 5), new Ride(10, 20) };
+                        rideRepository.AddRides("Nan", nan);
+                        var invoice = rideRepository.UserInvoice("Nan");
+                        Console.WriteLine("TotalFare: " + invoice.totalFare + "\nNumberOfRides: " + invoice.numberOfRides + "\nAverage Fare: " + invoice.averageFare);
+                        break;
+                    }
                 default:
                     {
                         Console.WriteLine("Enter a Valid Number");
