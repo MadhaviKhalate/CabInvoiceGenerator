@@ -6,7 +6,7 @@ namespace CabInvoice_Generator
     {
         public static void Main(string[] args)
         {
-            CabInvoiceClass getMethod = new CabInvoiceClass();
+            CabInvoiceClass getMethod = new CabInvoiceClass(RideType.NORMAL);
 
             Console.WriteLine("1 for Total Fare\n2 for Multiple Rides\n3 for Enhanced Invoice");
             Console.WriteLine("Enter a Number");
@@ -45,6 +45,16 @@ namespace CabInvoice_Generator
                         rideRepository.AddRides("Nan", nan);
                         var invoice = rideRepository.UserInvoice("Nan");
                         Console.WriteLine("TotalFare: " + invoice.totalFare + "\nNumberOfRides: " + invoice.numberOfRides + "\nAverage Fare: " + invoice.averageFare);
+                        break;
+                    }
+                case 5:
+                    {
+                        CabInvoiceClass newMethod = new CabInvoiceClass(RideType.PREMIUM);
+                        double distance = 10;
+                        int time = 10;
+                        Ride ride = new Ride(distance, time);
+                        double result = newMethod.CalculateFare(ride);
+                        Console.WriteLine("Total Fare: " + result);
                         break;
                     }
                 default:

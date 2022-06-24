@@ -43,7 +43,7 @@ namespace CabInvoice_Generator
         }
         public EnhancedInvoice UserInvoice(string userid)
         {
-            CabInvoiceClass invoiceGenerator = new CabInvoiceClass();
+            CabInvoiceClass invoiceGenerator = new CabInvoiceClass(RideType.NORMAL);
             Console.WriteLine("UserID: " + userid);
             return invoiceGenerator.MultipleRides(GetRides(userid));
         }
